@@ -117,7 +117,19 @@ Create a docker storage for Grafana so that its persistent during reboots:
 
 ```docker volume create grafana-storage```
 
-Run Docker Compose and turn up the monitoring
+***Clone the Repo from Github***
+Run the following:
+```
+git clone https://github.com/GenesysGo/dagger-monitoring && cd dagger-monitoring
+```
+
+***Run Docker Compose and turn up the monitoring***
+
+Ensure you're in the proper directory
+```
+/home/dagger/dagger-monitoring
+```
+and you see the docker-compose.yaml file.
 
 ```docker compose up -d```
 
@@ -141,4 +153,3 @@ Navigate on the left to the Dashboards button.  This looks like 4 squares stacke
 Once this loads, click import at the bottom.
 
 You now have a dashboard for your wield node and should start to see your metrics populate the dashboard soon.
-
