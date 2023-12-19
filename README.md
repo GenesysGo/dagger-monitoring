@@ -118,6 +118,7 @@ Create a docker storage for Grafana so that its persistent during reboots:
 ```docker volume create grafana-storage```
 
 ***Clone the Repo from Github***
+
 Run the following:
 ```
 git clone https://github.com/GenesysGo/dagger-monitoring && cd dagger-monitoring
