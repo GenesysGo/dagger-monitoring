@@ -1,0 +1,33 @@
+global:
+  # you can change these as depending on how granular you want your metrics ,
+  # and how busy your network is.
+  scrape_interval: 15s # Scrape job runs every 15 sec.
+  evaluation_interval: 60s # Evaluate rules every 1 min.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  # - "first_rules.yml"
+  # - "second_rules.yml"
+
+scrape_configs:
+  - job_name: "prometheus" # Prometheus Instances
+    static_configs:
+      - targets: ["localhost:9090"] # Local Prometheus
+  - job_name: "dagger" # Node Exporter
+    static_configs:
+      - targets:
+          - node-exporter:9100
+    relabel_configs:
+      - source_labels: ["__address__"]
+        separator: ":"
+        regex: "(.*):.*"
+        target_label: "instance"
+        replacement: "${1}"
