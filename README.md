@@ -22,18 +22,18 @@ Then add the GPG key for the official Docker repository to your system:
  
 Add the Docker repository to APT sources:
 
-```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null"```
+```echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null```
  
 This will also update our package database with the Docker packages from the newly added repo.
 
 Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
 
-```apt-cache policy docker-ce```
- 
+```ssudo apt-cache policy docker-ce```
+
 Finally, install Docker:
 
-```sudo apt install docker-ce```
- 
+```sudo apt update && sudo apt install docker-ce```
+
 Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:
 
 ```sudo systemctl status docker```
@@ -97,7 +97,7 @@ The following command will download the 2.23.3 release and save the executable f
 
 ```mkdir -p ~/.docker/cli-plugins/```
 
-```curl -SL https://github.com/docker/compose/releases/download/v2.3.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose```
+```curl -SL https://github.com/docker/compose/releases/download/v2.23.3/docker-compose-linux-x86_64 -o ~/.docker/cli-plugins/docker-compose```
  
 Next, set the correct permissions so that the docker-compose command is executable:
 
