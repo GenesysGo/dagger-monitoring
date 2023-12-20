@@ -28,7 +28,7 @@ This will also update our package database with the Docker packages from the new
 
 Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:
 
-```ssudo apt-cache policy docker-ce```
+```sudo apt-cache policy docker-ce```
 
 Finally, install Docker:
 
